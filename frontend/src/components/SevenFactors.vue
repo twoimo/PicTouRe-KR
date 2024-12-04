@@ -2,58 +2,52 @@
   <v-card-text class="body-1 font-weight-medium text-center">
     <div class="factor">
       <div class="tooltip">
-        Sun &amp; Chill-Out
-        <span class="tooltiptext">a neurotic sun lover, who likes warm weather and sun bathing and does not like
-cold, rainy or crowded places</span>
+        태양 &amp; 휴식
+        <span class="tooltiptext">따뜻한 날씨와 일광욕을 좋아하고 추운 날씨, 비 오는 날, 붐비는 장소를 싫어하는 신경질적인 태양 애호가</span>
       </div>
-      - Score = {{profile.F1}}
+      - 점수 = {{ profile.F1 }}
     </div>
     <div class="factor">
       <div class="tooltip">
-        Knowledge &amp; Travel
-        <span class="tooltiptext">an open minded, educational and well-organized tourist, who likes travelling in groups and gaining knowledge, rather than being lazy</span>
+        지식 &amp; 여행
+        <span class="tooltiptext">게으름 피우기보다는 단체 여행과 지식 습득을 좋아하는 개방적이고 교육적이며 잘 조직된 관광객</span>
       </div>
-      - Score = {{profile.F2}}
+      - 점수 = {{ profile.F2 }}
     </div>
     <div class="factor">
       <div class="tooltip">
-        Independence &amp; History
-        <span class="tooltiptext">an independent tourist, who is searching for the meaning of life, is interested in history and
-tradition, and likes to travel independently, rather than organized tours and travels</span>
+        독립 &amp; 역사
+        <span class="tooltiptext">삶의 의미를 찾고 역사와 전통에 관심이 있으며 조직된 여행보다는 독립적인 여행을 좋아하는 독립적인 관광객</span>
       </div>
-      - Score = {{profile.F3}}
+      - 점수 = {{ profile.F3 }}
     </div>
     <div class="factor">
       <div class="tooltip">
-        Culture &amp; Indulgence
-        <span class="tooltiptext">an extroverted, culture and history loving high-class tourist, who is also a connoisseur of good food and
-wine</span>
+        문화 &amp; 향유
+        <span class="tooltiptext">외향적이고 문화와 역사를 사랑하며 좋은 음식과 와인을 즐기는 고급 관광객</span>
       </div>
-      - Score = {{profile.F4}}
+      - 점수 = {{ profile.F4 }}
     </div>
     <div class="factor">
       <div class="tooltip">
-        Social &amp; Sports
-        <span class="tooltiptext">an open minded sportive traveller, who loves to socialize with locals and does
-not like areas of intense tourism</span>
+        사회 &amp; 스포츠
+        <span class="tooltiptext">현지인들과 어울리기를 좋아하고 관광객이 많은 지역을 싫어하는 개방적인 스포츠 여행객</span>
       </div>
-      - Score = {{profile.F5}}
+      - 점수 = {{ profile.F5 }}
     </div>
     <div class="factor">
       <div class="tooltip">
-        Action &amp; Fun - Score
-        <span class="tooltiptext">a jet setting thrill seeker, who loves action, party, and
-exclusiveness and avoids quiet and peaceful places</span>
+        액션 &amp; 재미
+        <span class="tooltiptext">액션, 파티, 독점성을 좋아하고 조용하고 평화로운 장소를 피하는 제트 세터</span>
       </div>
-      - Score = {{profile.F6}}
+      - 점수 = {{ profile.F6 }}
     </div>
     <div class="factor">
       <div class="tooltip">
-        Nature &amp; Recreation
-        <span class="tooltiptext">a nature and silence lover,
-who wants to escape from everyday life and avoids crowded places and large cities</span>
+        자연 &amp; 휴양
+        <span class="tooltiptext">일상 생활에서 벗어나고 싶어하며 붐비는 장소와 대도시를 피하는 자연과 고요함을 사랑하는 사람</span>
       </div>
-      - Score = {{profile.F7}}
+      - 점수 = {{ profile.F7 }}
     </div>
   </v-card-text>
 </template>
@@ -71,26 +65,26 @@ export default {
 </script>
 
 <style scoped>
-
-/* Tooltip container */
+/* 툴팁 컨테이너 */
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted #C51162; /* If you want dots under the hoverable text */
+  border-bottom: 1px dotted #C51162;
+  /* 호버 가능한 텍스트 아래 점선 */
   font-weight: bold;
 }
 
-/* Tooltip text */
+/* 툴팁 텍스트 */
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 300px;
   background-color: #C51162;
   color: #fff;
-  text-align: justify!important;
+  text-align: justify !important;
   border-radius: 6px;
   padding: 5px;
-  
-  /* Position the tooltip */
+
+  /* 툴팁 위치 */
   position: absolute;
   z-index: 1;
   bottom: 100%;
@@ -98,7 +92,7 @@ export default {
   margin-left: -120px;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* 툴팁 컨테이너에 마우스를 올리면 툴팁 텍스트 표시 */
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }

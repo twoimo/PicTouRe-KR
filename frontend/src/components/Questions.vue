@@ -1,188 +1,172 @@
 <template>
   <v-card class="mx-auto" max-width="900" flat>
-    <v-card-title class="headline font-weight-medium">Questions</v-card-title>
-    <v-card-subtitle class="subtitle-1 font-weight-medium">Positions marked with * are required</v-card-subtitle>
-    <v-alert
-      color="#C51162"
-      dark
-      icon="mdi-format-list-checks"
-      prominent
-    >Please indicate your level of agreement with the following statements.</v-alert>
+    <v-card-title class="headline font-weight-medium">질문</v-card-title>
+    <v-card-subtitle class="subtitle-1 font-weight-medium">*로 표시된 항목은 필수입니다</v-card-subtitle>
+    <v-alert color="#C51162" dark icon="mdi-format-list-checks" prominent>다음 문장에 대한 동의 수준을 표시해 주세요.</v-alert>
     <v-card-text>
       <v-form class="body-1 text-justify" ref="form" v-model="valid" lazy-validation>
-        <span class="question">* It was easy to find 3 to 7 pictures.</span>
-        <v-radio-group v-model="questions.Q1" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Strongly disagree" value="0"></v-radio>
-          <v-radio color="primary" label="Disagree" value="1"></v-radio>
-          <v-radio color="primary" label="Neutral" value="2"></v-radio>
-          <v-radio color="primary" label="Agree" value="3"></v-radio>
-          <v-radio color="primary" label="Strongly agree" value="4"></v-radio>
+        <span class="question">* 3~7장의 사진을 찾는 것이 쉬웠습니다.</span>
+        <v-radio-group v-model="questions.Q1" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="매우 동의하지 않음" value="0"></v-radio>
+          <v-radio color="primary" label="동의하지 않음" value="1"></v-radio>
+          <v-radio color="primary" label="중립" value="2"></v-radio>
+          <v-radio color="primary" label="동의함" value="3"></v-radio>
+          <v-radio color="primary" label="매우 동의함" value="4"></v-radio>
         </v-radio-group>
-        <span
-          class="question"
-        >* I mainly used pictures downloaded from the internet (e.g., Google, Flickr, etc.).</span>
-        <v-radio-group v-model="questions.Q2" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Strongly disagree" value="0"></v-radio>
-          <v-radio color="primary" label="Disagree" value="1"></v-radio>
-          <v-radio color="primary" label="Neutral" value="2"></v-radio>
-          <v-radio color="primary" label="Agree" value="3"></v-radio>
-          <v-radio color="primary" label="Strongly agree" value="4"></v-radio>
+        <span class="question">* 주로 인터넷에서 다운로드한 사진을 사용했습니다 (예: 구글, 플리커 등).</span>
+        <v-radio-group v-model="questions.Q2" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="매우 동의하지 않음" value="0"></v-radio>
+          <v-radio color="primary" label="동의하지 않음" value="1"></v-radio>
+          <v-radio color="primary" label="중립" value="2"></v-radio>
+          <v-radio color="primary" label="동의함" value="3"></v-radio>
+          <v-radio color="primary" label="매우 동의함" value="4"></v-radio>
         </v-radio-group>
-        <span class="question">* I mainly used my own pictures.</span>
-        <v-radio-group v-model="questions.Q3" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Strongly disagree" value="0"></v-radio>
-          <v-radio color="primary" label="Disagree" value="1"></v-radio>
-          <v-radio color="primary" label="Neutral" value="2"></v-radio>
-          <v-radio color="primary" label="Agree" value="3"></v-radio>
-          <v-radio color="primary" label="Strongly agree" value="4"></v-radio>
+        <span class="question">* 주로 내 사진을 사용했습니다.</span>
+        <v-radio-group v-model="questions.Q3" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="매우 동의하지 않음" value="0"></v-radio>
+          <v-radio color="primary" label="동의하지 않음" value="1"></v-radio>
+          <v-radio color="primary" label="중립" value="2"></v-radio>
+          <v-radio color="primary" label="동의함" value="3"></v-radio>
+          <v-radio color="primary" label="매우 동의함" value="4"></v-radio>
         </v-radio-group>
-        <span class="question">* I understood the explanations of the Seven-Factors.</span>
-        <v-radio-group v-model="questions.Q4" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Strongly disagree" value="0"></v-radio>
-          <v-radio color="primary" label="Disagree" value="1"></v-radio>
-          <v-radio color="primary" label="Neutral" value="2"></v-radio>
-          <v-radio color="primary" label="Agree" value="3"></v-radio>
-          <v-radio color="primary" label="Strongly agree" value="4"></v-radio>
+        <span class="question">* 7가지 요소에 대한 설명을 이해했습니다.</span>
+        <v-radio-group v-model="questions.Q4" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="매우 동의하지 않음" value="0"></v-radio>
+          <v-radio color="primary" label="동의하지 않음" value="1"></v-radio>
+          <v-radio color="primary" label="중립" value="2"></v-radio>
+          <v-radio color="primary" label="동의함" value="3"></v-radio>
+          <v-radio color="primary" label="매우 동의함" value="4"></v-radio>
         </v-radio-group>
-        <span class="question">* The resulting profile matches my preferences.</span>
-        <v-radio-group v-model="questions.Q5" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Strongly disagree" value="0"></v-radio>
-          <v-radio color="primary" label="Disagree" value="1"></v-radio>
-          <v-radio color="primary" label="Neutral" value="2"></v-radio>
-          <v-radio color="primary" label="Agree" value="3"></v-radio>
-          <v-radio color="primary" label="Strongly agree" value="4"></v-radio>
+        <span class="question">* 결과 프로필이 내 선호도와 일치합니다.</span>
+        <v-radio-group v-model="questions.Q5" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="매우 동의하지 않음" value="0"></v-radio>
+          <v-radio color="primary" label="동의하지 않음" value="1"></v-radio>
+          <v-radio color="primary" label="중립" value="2"></v-radio>
+          <v-radio color="primary" label="동의함" value="3"></v-radio>
+          <v-radio color="primary" label="매우 동의함" value="4"></v-radio>
         </v-radio-group>
-        <span
-          class="question"
-        >Which factor in the resulting profile does not match well? (multiple answers allowed)</span>
-        <v-checkbox v-model="questions.Q6_1" color="primary" label="Sun &amp; Chill-Out"></v-checkbox>
-        <v-checkbox v-model="questions.Q6_2" color="primary" label="Knowledge &amp; Travel"></v-checkbox>
-        <v-checkbox v-model="questions.Q6_3" color="primary" label="Independence &amp; History"></v-checkbox>
-        <v-checkbox v-model="questions.Q6_4" color="primary" label="Culture &amp; Indulgence"></v-checkbox>
-        <v-checkbox v-model="questions.Q6_5" color="primary" label="Social &amp; Sports"></v-checkbox>
-        <v-checkbox v-model="questions.Q6_6" color="primary" label="Action &amp; Fun"></v-checkbox>
-        <v-checkbox v-model="questions.Q6_7" color="primary" label="Nature &amp; Recreation"></v-checkbox>
-        <span
-          class="question"
-        >How would you adjust the resulting profile? (multiple adjustments allowed)</span>
+        <span class="question">결과 프로필에서 잘 맞지 않는 요소는 무엇입니까? (복수 응답 가능)</span>
+        <v-checkbox v-model="questions.Q6_1" color="primary" label="태양 &amp; 휴식"></v-checkbox>
+        <v-checkbox v-model="questions.Q6_2" color="primary" label="지식 &amp; 여행"></v-checkbox>
+        <v-checkbox v-model="questions.Q6_3" color="primary" label="독립 &amp; 역사"></v-checkbox>
+        <v-checkbox v-model="questions.Q6_4" color="primary" label="문화 &amp; 탐닉"></v-checkbox>
+        <v-checkbox v-model="questions.Q6_5" color="primary" label="사회 &amp; 스포츠"></v-checkbox>
+        <v-checkbox v-model="questions.Q6_6" color="primary" label="액션 &amp; 재미"></v-checkbox>
+        <v-checkbox v-model="questions.Q6_7" color="primary" label="자연 &amp; 휴양"></v-checkbox>
+        <span class="question">결과 프로필을 어떻게 조정하시겠습니까? (복수 조정 가능)</span>
         <v-row>
           <v-col cols="12">
             <span style="padding-left: 10px;">
-              Sun &amp; Chill-Out Score
-              <b>{{selfassessment.F1}}</b>
+              태양 &amp; 휴식 점수
+              <b>{{ selfassessment.F1 }}</b>
             </span>
-            <v-slider v-model="selfassessment.F1" thumb-label @change="adjusted=true"></v-slider>
+            <v-slider v-model="selfassessment.F1" thumb-label @change="adjusted = true"></v-slider>
           </v-col>
           <v-col cols="12">
             <span style="padding-left: 10px;">
-              Knowledge &amp; Travel Score
-              <b>{{selfassessment.F2}}</b>
+              지식 &amp; 여행 점수
+              <b>{{ selfassessment.F2 }}</b>
             </span>
-            <v-slider v-model="selfassessment.F2" thumb-label @change="adjusted=true"></v-slider>
+            <v-slider v-model="selfassessment.F2" thumb-label @change="adjusted = true"></v-slider>
           </v-col>
           <v-col cols="12">
             <span style="padding-left: 10px;">
-              Independence &amp; History Score
-              <b>{{selfassessment.F3}}</b>
+              독립 &amp; 역사 점수
+              <b>{{ selfassessment.F3 }}</b>
             </span>
-            <v-slider v-model="selfassessment.F3" thumb-label @change="adjusted=true"></v-slider>
+            <v-slider v-model="selfassessment.F3" thumb-label @change="adjusted = true"></v-slider>
           </v-col>
           <v-col cols="12">
             <span style="padding-left: 10px;">
-              Culture &amp; Indulgence Score
-              <b>{{selfassessment.F4}}</b>
+              문화 &amp; 탐닉 점수
+              <b>{{ selfassessment.F4 }}</b>
             </span>
-            <v-slider v-model="selfassessment.F4" thumb-label @change="adjusted=true"></v-slider>
+            <v-slider v-model="selfassessment.F4" thumb-label @change="adjusted = true"></v-slider>
           </v-col>
           <v-col cols="12">
             <span style="padding-left: 10px;">
-              Social &amp; Sports Score
-              <b>{{selfassessment.F5}}</b>
+              사회 &amp; 스포츠 점수
+              <b>{{ selfassessment.F5 }}</b>
             </span>
-            <v-slider v-model="selfassessment.F5" thumb-label @change="adjusted=true"></v-slider>
+            <v-slider v-model="selfassessment.F5" thumb-label @change="adjusted = true"></v-slider>
           </v-col>
           <v-col cols="12">
             <span style="padding-left: 10px;">
-              Action &amp; Fun Score
-              <b>{{selfassessment.F6}}</b>
+              액션 &amp; 재미 점수
+              <b>{{ selfassessment.F6 }}</b>
             </span>
-            <v-slider v-model="selfassessment.F6" thumb-label @change="adjusted=true"></v-slider>
+            <v-slider v-model="selfassessment.F6" thumb-label @change="adjusted = true"></v-slider>
           </v-col>
           <v-col cols="12">
             <span style="padding-left: 10px;">
-              Nature &amp; Recreation Score
-              <b>{{selfassessment.F7}}</b>
+              자연 &amp; 휴양 점수
+              <b>{{ selfassessment.F7 }}</b>
             </span>
-            <v-slider v-model="selfassessment.F7" thumb-label @change="adjusted=true"></v-slider>
+            <v-slider v-model="selfassessment.F7" thumb-label @change="adjusted = true"></v-slider>
           </v-col>
         </v-row>
-        <span class="question">* What is your age?</span>
-        <v-radio-group v-model="questions.age" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Under 18" value="1"></v-radio>
-          <v-radio color="primary" label="18 - 24" value="2"></v-radio>
-          <v-radio color="primary" label="25 - 34" value="3"></v-radio>
-          <v-radio color="primary" label="35 - 44" value="4"></v-radio>
-          <v-radio color="primary" label="45 - 55" value="5"></v-radio>
-          <v-radio color="primary" label="Over 55" value="6"></v-radio>
-          <v-radio color="primary" label="Prefer not to say" value="0"></v-radio>
+        <span class="question">* 나이는 어떻게 되십니까?</span>
+        <v-radio-group v-model="questions.age" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="18세 미만" value="1"></v-radio>
+          <v-radio color="primary" label="18 - 24세" value="2"></v-radio>
+          <v-radio color="primary" label="25 - 34세" value="3"></v-radio>
+          <v-radio color="primary" label="35 - 44세" value="4"></v-radio>
+          <v-radio color="primary" label="45 - 55세" value="5"></v-radio>
+          <v-radio color="primary" label="55세 이상" value="6"></v-radio>
+          <v-radio color="primary" label="말하고 싶지 않음" value="0"></v-radio>
         </v-radio-group>
-        <span class="question">* What is your gender?</span>
-        <v-radio-group v-model="questions.gender" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Male" value="1"></v-radio>
-          <v-radio color="primary" label="Female" value="2"></v-radio>
-          <v-radio color="primary" label="Other" value="3"></v-radio>
-          <v-radio color="primary" label="Prefer not to say" value="0"></v-radio>
+        <span class="question">* 성별은 무엇입니까?</span>
+        <v-radio-group v-model="questions.gender" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="남성" value="1"></v-radio>
+          <v-radio color="primary" label="여성" value="2"></v-radio>
+          <v-radio color="primary" label="기타" value="3"></v-radio>
+          <v-radio color="primary" label="말하고 싶지 않음" value="0"></v-radio>
         </v-radio-group>
-        <span class="question">* What is your highest degree of education?</span>
-        <v-radio-group v-model="questions.education" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Less than high school diploma" value="1"></v-radio>
-          <v-radio color="primary" label="High school degree or equivalent" value="2"></v-radio>
-          <v-radio color="primary" label="Bachelor's degree" value="3"></v-radio>
-          <v-radio color="primary" label="Master's degree" value="4"></v-radio>
-          <v-radio color="primary" label="Doctorate" value="5"></v-radio>
-          <v-radio color="primary" label="Other" value="6"></v-radio>
-          <v-radio color="primary" label="Prefer not to say" value="0"></v-radio>
+        <span class="question">* 최종 학력은 무엇입니까?</span>
+        <v-radio-group v-model="questions.education" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="고등학교 졸업 이하" value="1"></v-radio>
+          <v-radio color="primary" label="고등학교 졸업" value="2"></v-radio>
+          <v-radio color="primary" label="학사 학위" value="3"></v-radio>
+          <v-radio color="primary" label="석사 학위" value="4"></v-radio>
+          <v-radio color="primary" label="박사 학위" value="5"></v-radio>
+          <v-radio color="primary" label="기타" value="6"></v-radio>
+          <v-radio color="primary" label="말하고 싶지 않음" value="0"></v-radio>
         </v-radio-group>
-        <span class="question">* How often do you travel for pleasure (leisure/tourism)?</span>
-        <v-radio-group v-model="questions.travel_frequency" :rules="[v => !!v || 'Required!']" required column>
-          <v-radio color="primary" label="Less than once a year" value="1"></v-radio>
-          <v-radio color="primary" label="1 or 2 times a year" value="2"></v-radio>
-          <v-radio color="primary" label="2 or 3 times a year" value="3"></v-radio>
-          <v-radio color="primary" label="3 or 4 times a year" value="4"></v-radio>
-          <v-radio color="primary" label="4 or 5 times a year" value="5"></v-radio>
-          <v-radio color="primary" label="More than 5 times a year" value="6"></v-radio>
-          <v-radio color="primary" label="Prefer not to say" value="0"></v-radio>
+        <span class="question">* 여가를 위해 얼마나 자주 여행하십니까?</span>
+        <v-radio-group v-model="questions.travel_frequency" :rules="[v => !!v || '필수 항목입니다!']" required column>
+          <v-radio color="primary" label="1년에 한 번 미만" value="1"></v-radio>
+          <v-radio color="primary" label="1년에 1~2번" value="2"></v-radio>
+          <v-radio color="primary" label="1년에 2~3번" value="3"></v-radio>
+          <v-radio color="primary" label="1년에 3~4번" value="4"></v-radio>
+          <v-radio color="primary" label="1년에 4~5번" value="5"></v-radio>
+          <v-radio color="primary" label="1년에 5번 이상" value="6"></v-radio>
+          <v-radio color="primary" label="말하고 싶지 않음" value="0"></v-radio>
         </v-radio-group>
-        <h3>Comments/Suggestions:</h3>
-        <v-textarea class="mx-2" label="Your message" v-model="questions.message" rows="3"></v-textarea>
-        <v-alert
-          dense
-          outlined
-          type="error"
-          :value="!valid"
-          transition="scale-transition"
-        >Required information missing! Please, fill out all required fields (marked with *).</v-alert>
+        <h3>의견/제안:</h3>
+        <v-textarea class="mx-2" label="메시지" v-model="questions.message" rows="3"></v-textarea>
+        <v-alert dense outlined type="error" :value="!valid" transition="scale-transition">필수 정보가 누락되었습니다! 모든 필수 항목을 작성해
+          주세요 (*로 표시된 항목).</v-alert>
         <v-card-actions>
           <v-spacer></v-spacer>
           <div class="my-2">
-            <v-btn @click="formSubmit()" large color="primary">Submit</v-btn>
+            <v-btn @click="formSubmit()" large color="primary">제출</v-btn>
           </div>
         </v-card-actions>
       </v-form>
     </v-card-text>
     <v-dialog v-model="dialog" max-width="290">
       <v-card>
-        <v-card-title class="headline">OOOPS...</v-card-title>
+        <v-card-title class="headline">오류 발생...</v-card-title>
         <v-card-text class="text-justify">
-          Some thing weng wrong!
-          The issue may be temporary.
-          Please, try it again after some while.
-          If the problem perists, please get in touch with us.
-          Thank you!
+          문제가 발생했습니다!
+          문제가 일시적일 수 있습니다.
+          잠시 후 다시 시도해 주세요.
+          문제가 지속되면 저희에게 연락해 주세요.
+          감사합니다!
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="dialog = false">OK</v-btn>
+          <v-btn color="primary" text @click="dialog = false">확인</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -282,13 +266,16 @@ export default {
   height: 100px;
   font-size: 16px;
 }
+
 .question {
   font-style: italic;
   font-weight: bold;
 }
+
 h3 {
   padding: 15px 0;
 }
+
 .v-input--selection-controls {
   margin-top: 0px !important;
 }

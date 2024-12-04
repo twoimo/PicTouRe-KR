@@ -1,62 +1,35 @@
 <template>
   <v-card flat>
-     <VueFileAgent
-      ref="vueFileAgent"
-      :multiple="true"
-      :deletable="true"
-      :sortable="true"
-      :accept="'image/*'"
-      :maxSize="'30MB'"
-      :maxFiles="7"
-      :thumbnailSize="190"
-      :helpText="'Choose pictures'"
-      :meta="true"
-      :theme="'list'"
-      :disabled="dragDropDisabled"
-      :errorText="{
-        type: 'Invalid file type. Only pictures allowed',
-        size: 'Files should not exceed 30MB in size',
-      }"
-      @select="filesSelected($event)"
-      @delete="fileDeleted($event)"
-      @sort="fileSorted($event)"
-      v-model="filesData"
-    ></VueFileAgent>
+    <VueFileAgent ref="vueFileAgent" :multiple="true" :deletable="true" :sortable="true" :accept="'image/*'"
+      :maxSize="'30MB'" :maxFiles="7" :thumbnailSize="190" :helpText="'사진을 선택하세요'" :meta="true" :theme="'list'"
+      :disabled="dragDropDisabled" :errorText="{
+        type: '잘못된 파일 형식입니다. 사진만 허용됩니다',
+        size: '파일 크기는 30MB를 초과할 수 없습니다',
+      }" @select="filesSelected($event)" @delete="fileDeleted($event)" @sort="fileSorted($event)" v-model="filesData">
+    </VueFileAgent>
     <v-card-actions>
       <v-spacer></v-spacer>
       <div class="my-2">
-        <v-btn
-          :loading="loading"
-          :disabled="(!filesDataForUpload.length || loading)" 
-          @click="uploadFiles()"
-          large
-          color="primary"
-        >
-            Upload {{ filesDataForUpload.length }} files
+        <v-btn :loading="loading" :disabled="(!filesDataForUpload.length || loading)" @click="uploadFiles()" large
+          color="primary">
+          {{ filesDataForUpload.length }}개의 파일 업로드
         </v-btn>
       </div>
     </v-card-actions>
-    <v-dialog
-      v-model="dialog"
-      max-width="290"
-    >
+    <v-dialog v-model="dialog" max-width="290">
       <v-card>
-        <v-card-title class="headline">OOOPS...</v-card-title>
+        <v-card-title class="headline">오류 발생...</v-card-title>
         <v-card-text class="text-justify">
-          Some thing weng wrong!
-          The issue may be temporary.
-          Please, try it again after some while.
-          If the problem perists, please get in touch with us.
-          Thank you! 
+          문제가 발생했습니다!
+          문제가 일시적일 수 있습니다.
+          잠시 후 다시 시도해 주세요.
+          문제가 지속되면 저희에게 연락해 주세요.
+          감사합니다!
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
-          >
-            OK
+          <v-btn color="primary" text @click="dialog = false">
+            확인
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -86,10 +59,10 @@ export default {
       dragDropDisabled: false,
       loading: false,
       filesData: [],
-      uploadHeaders: {"Content-Type": "multipart/form-data"},
+      uploadHeaders: { "Content-Type": "multipart/form-data" },
       filesDataForUpload: [],
     }
-  }, 
+  },
   methods: {
     filesSelected(filesDataNewlySelected) {
       var validFilesData = filesDataNewlySelected.filter(fileData => !fileData.error);
@@ -99,20 +72,20 @@ export default {
     },
     fileDeleted(fileData) {
       var i = this.filesDataForUpload.indexOf(fileData);
-      if(i !== -1){
+      if (i !== -1) {
         this.filesDataForUpload.splice(i, 1);
       }
     },
     array_move(arr, old_index, new_index) {
       if (new_index >= arr.length) {
-          var k = new_index - arr.length + 1;
-          while (k--) {
-              arr.push(undefined);
-          }
+        var k = new_index - arr.length + 1;
+        while (k--) {
+          arr.push(undefined);
+        }
       }
       arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
     },
-    fileSorted(indices){
+    fileSorted(indices) {
       console.log(indices);
       this.array_move(this.filesDataForUpload, indices.oldIndex, indices.newIndex);
       const url = "http://127.0.0.1:5000/backend/rank";
@@ -137,7 +110,7 @@ export default {
         });
     },
     uploadFiles() {
-      this.loading=true;
+      this.loading = true;
       this.dragDropDisabled = true;
       const url = "http://127.0.0.1:5000/backend/predict";
       //const url = "/backend/predict";

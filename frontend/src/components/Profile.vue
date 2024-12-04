@@ -1,12 +1,7 @@
 <template>
   <div id="profile">
     <div class="hidden-md-and-up">
-      <apexchart
-        type="radar"
-        height="335"
-        :options="chartOptionsMobile"
-        :series="getProfileSeries"
-      />
+      <apexchart type="radar" height="335" :options="chartOptionsMobile" :series="getProfileSeries" />
     </div>
     <div class="hidden-sm-and-down">
       <apexchart type="radar" :options="chartOptionsDesktop" :series="getProfileSeries" />
@@ -28,13 +23,13 @@ export default {
           }
         },
         labels: [
-          "Sun-Chill.",
-          "Knowl.-Trav.",
-          "Indep.-Hist.",
-          "Cult.-Indulg.",
-          "Social-Sports",
-          "Action-Fun",
-          "Nature-Recr."
+          "태양-휴식",
+          "지식-여행",
+          "독립-역사",
+          "문화-향유",
+          "사회-스포츠",
+          "액션-재미",
+          "자연-레크리에이션"
         ],
         yaxis: {
           max: 100,
@@ -46,7 +41,7 @@ export default {
             }
           }
         },
-         xaxis: {
+        xaxis: {
           labels: {
             style: {
               colors: ["000", "000", "000", "000", "000", "000", "000"],
@@ -61,19 +56,19 @@ export default {
         },
         tooltip: {
           custom: ({ series, seriesIndex, dataPointIndex, w }) => {
-            var longLabels= [
-              "Sun & Chill-Out",
-              "Knowledge & Travel",
-              "Independence & History",
-              "Culture & Indulgence",
-              "Social & Sports",
-              "Action & Fun",
-              "Nature & Recreation"
+            var longLabels = [
+              "태양 & 휴식",
+              "지식 & 여행",
+              "독립 & 역사",
+              "문화 & 향유",
+              "사회 & 스포츠",
+              "액션 & 재미",
+              "자연 & 레크리에이션"
             ];
             return (
               '<div class="profileTooltip">' +
               "<span>" +
-              longLabels[dataPointIndex] + 
+              longLabels[dataPointIndex] +
               ": " +
               series[seriesIndex][dataPointIndex] +
               "</span>" +
@@ -99,13 +94,13 @@ export default {
           }
         },
         labels: [
-          "Sun & Chill-Out",
-          "Knowledge & Travel",
-          "Independence & History",
-          "Culture & Indulgence",
-          "Social & Sports",
-          "Action & Fun",
-          "Nature & Recreation"
+          "태양 & 휴식",
+          "지식 & 여행",
+          "독립 & 역사",
+          "문화 & 향유",
+          "사회 & 스포츠",
+          "액션 & 재미",
+          "자연 & 레크리에이션"
         ],
         yaxis: {
           max: 100,
@@ -133,19 +128,19 @@ export default {
         },
         tooltip: {
           custom: ({ series, seriesIndex, dataPointIndex, w }) => {
-            var longLabels= [
-              "Sun & Chill-Out",
-              "Knowledge & Travel",
-              "Independence & History",
-              "Culture & Indulgence",
-              "Social & Sports",
-              "Action & Fun",
-              "Nature & Recreation"
+            var longLabels = [
+              "태양 & 휴식",
+              "지식 & 여행",
+              "독립 & 역사",
+              "문화 & 향유",
+              "사회 & 스포츠",
+              "액션 & 재미",
+              "자연 & 레크리에이션"
             ];
             return (
               '<div class="profileTooltip">' +
               "<span>" +
-              longLabels[dataPointIndex] + 
+              longLabels[dataPointIndex] +
               ": " +
               series[seriesIndex][dataPointIndex] +
               "</span>" +
@@ -179,7 +174,7 @@ export default {
   font-size: 16px;
 }
 
-.hidden-sm-and-down{
+.hidden-sm-and-down {
   margin-bottom: -100px;
   margin-top: -30px;
 }

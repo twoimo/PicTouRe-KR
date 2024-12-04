@@ -3,65 +3,44 @@
     <Stepper stepNumber="2"></Stepper>
     <v-card tile height="100%">
       <v-card class="mx-auto" max-width="900" flat>
-        <v-card-title class="headline font-weight-medium">Upload Your Pictures</v-card-title>
-        <v-card-subtitle class="subtitle-1 font-weight-medium">To determine your travel profile</v-card-subtitle>
-        <v-alert
-          color="#C51162"
-          dark
-          icon="mdi-island"
-          prominent
-        >Imagine the next vacation you would love to take.</v-alert>
-        <v-alert
-          color="#C51162"
-          dark
-          icon="mdi-image-multiple"
-          prominent
-        >Select 3 to 7 pictures that would describe the vacation in your mind well. You can use your own pictures or pictures downloaded from the internet.</v-alert>
-        <v-alert
-          color="#C51162"
-          dark
-          icon="mdi-sort"
-          prominent
-        >Rank the selected pictures according to their relevance, where top means most relevant.</v-alert>
-        <v-alert icon="mdi-information-outline"  prominent text type="info" class="text-justify">
+        <v-card-title class="headline font-weight-medium">사진을 업로드하세요</v-card-title>
+        <v-card-subtitle class="subtitle-1 font-weight-medium">여행 프로필을 결정하기 위해</v-card-subtitle>
+        <v-alert color="#C51162" dark icon="mdi-island" prominent>다음 휴가를 상상해보세요.</v-alert>
+        <v-alert color="#C51162" dark icon="mdi-image-multiple" prominent>마음속의 휴가를 잘 설명할 수 있는 사진 3~7장을 선택하세요. 자신의 사진이나
+          인터넷에서 다운로드한 사진을 사용할 수 있습니다.</v-alert>
+        <v-alert color="#C51162" dark icon="mdi-sort" prominent>선택한 사진을 중요도에 따라 순위를 매기세요. 상위에 있을수록 더 중요합니다.</v-alert>
+        <v-alert icon="mdi-information-outline" prominent text type="info" class="text-justify">
           <ul>
             <li>
-              In order to rank the pictures, click and hold (on mobile: touch) the picture you want to re-rank and move it to the anticipated position.
+              사진의 순위를 매기려면, 이동하고 싶은 사진을 클릭하고(모바일에서는 터치) 예상 위치로 이동하세요.
             </li>
             <li>
-              The uploading and processing of the pictures can take some time. Thank you for your patience.
+              사진 업로드 및 처리는 시간이 걸릴 수 있습니다. 인내심을 가져주셔서 감사합니다.
             </li>
             <li>
-              Please note, that we explicitly DO NOT SAVE the uploaded pictures at any time!
+              업로드된 사진은 절대 저장되지 않는다는 점을 유의하세요!
             </li>
           </ul>
         </v-alert>
-        <v-card-title class="headline font-weight-medium">Select and Rank Here</v-card-title>
-        <v-card-subtitle class="subtitle-1 font-weight-medium">And then press the upload-button</v-card-subtitle>
+        <v-card-title class="headline font-weight-medium">여기에서 선택하고 순위를 매기세요</v-card-title>
+        <v-card-subtitle class="subtitle-1 font-weight-medium">그리고 업로드 버튼을 누르세요</v-card-subtitle>
         <ImageUpload />
       </v-card>
     </v-card>
-    <v-dialog
-      v-model="dialog"
-      max-width="290"
-    >
+    <v-dialog v-model="dialog" max-width="290">
       <v-card>
-        <v-card-title class="headline">OOOPS...</v-card-title>
+        <v-card-title class="headline">오류 발생...</v-card-title>
         <v-card-text class="text-justify">
-          Some thing weng wrong!
-          The issue may be temporary.
-          Please, try it again after some while.
-          If the problem perists, please get in touch with us.
-          Thank you! 
+          문제가 발생했습니다!
+          문제가 일시적일 수 있습니다.
+          잠시 후 다시 시도해 주세요.
+          문제가 지속되면 저희에게 연락해 주세요.
+          감사합니다!
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
-          >
-            OK
+          <v-btn color="primary" text @click="dialog = false">
+            확인
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -84,7 +63,7 @@ export default {
       dialog: false
     };
   },
-   mounted() {
+  mounted() {
     const url = "http://127.0.0.1:5000/backend/time";
     //const url = "/backend/time";
     const config = {

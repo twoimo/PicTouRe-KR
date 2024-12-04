@@ -1,5 +1,6 @@
 name: pic2prof
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - numpy
@@ -10,5 +11,5 @@ dependencies:
   - flask
   - flask-sqlalchemy
   - flask-cors
-  - gunicorn
+  - waitress
 prefix: /opt/miniconda3/envs/pic2prof

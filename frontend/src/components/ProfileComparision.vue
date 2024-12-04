@@ -13,17 +13,6 @@ export default {
   name: "RadarChart",
   data() {
     return {
-      /* series: [
-        {
-          name: "Self Assesment",
-          data: [80, 50, 30, 40, 100, 20, 10]
-        },
-        {
-          name: "Picture-Based",
-          data: [20, 30, 40, 80, 20, 80, 10]
-        }
-      ],
- */
       chartOptions: {
         chart: {
           toolbar: {
@@ -79,7 +68,7 @@ export default {
             polygons: {
               strokeColor: '#e8e8e8',
               fill: {
-                  colors: ['#f8f8f8', '#fff']
+                colors: ['#f8f8f8', '#fff']
               }
             }
           }
@@ -108,5 +97,4 @@ p {
   margin-bottom: 20px;
   text-align: center;
 }
-
 </style>
